@@ -38,7 +38,7 @@ class plgSystemAdminer extends JPlugin
         return array(
             array(
                 'link' => 'index.php?adminer=true',
-                'image' => ((JVERSION >= 3) ? 'tools' : 'kunena/icons/icon-48-kupdate-alert-white.png'),
+                'image' => ((JVERSION >= 3) ? 'tools' : 'media/adminer/adminer.png'),
                 'text' => JText::_('Adminer'),
                 'id' => 'plg_system_adminer',
                 'access' => array(

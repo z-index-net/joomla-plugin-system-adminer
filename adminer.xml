@@ -14,6 +14,9 @@
 	</files>
 	<media folder="media" destination="adminer">
 		<filename>adminer.php</filename>
+        <filename>adminer.png</filename>
+        <filename>loader.php</filename>
+        <folder>plugins</folder>
 	</media>
 	<config>
 		<fields name="params">
