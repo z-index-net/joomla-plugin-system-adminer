@@ -10,30 +10,15 @@ define('_JEXEC', 1);
 
 define('DS', DIRECTORY_SEPARATOR);
 
-define('JPATH_BASE', dirname(__FILE__) . '/../../../../'); // TODO
+define('JPATH_BASE', dirname(__FILE__) . '/../../');
 
 require_once JPATH_BASE . '/includes/defines.php';
 
 require_once JPATH_BASE . '/includes/framework.php';
 
-$app = JFactory::getApplication('administrator');
+JFactory::getApplication('administrator')->initialise();
 
-$app->initialise(array('language' => $app->getUserState('application.lang')));
-
-$user = JFactory::getUser();
-
-if(!$user->id) {
-	exit;
-}
-
-$lang = JFactory::getLanguage()->getTag();
-$lang = explode('-', $lang, 2);
-$lang = $lang[0];
-
-$plugin = JPluginHelper::getPlugin('system', 'adminer');
-$plugin->params = new JRegistry($plugin->params);
-
-if(!in_array($plugin->params->get('accesslevel'), $user->getAuthorisedViewLevels())) {
+if(!JFactory::getUser()->authorise('core.admin')) {
 	exit;
 }
 
@@ -48,6 +33,7 @@ function adminer_object() {
         include_once dirname(__FILE__) . DS . 'plugins' . DS . $file;
     }
     
+    // fallback
     if(empty($plugins)) {
         return new Adminer();
     }

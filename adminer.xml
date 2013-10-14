@@ -18,13 +18,6 @@
         <filename>loader.php</filename>
         <folder>plugins</folder>
 	</media>
-	<config>
-		<fields name="params">
-			<fieldset name="basic">
-				<field name="accesslevel" type="accesslevel" default="3" label="JFIELD_ACCESS_LABEL" />
-			</fieldset>
-		</fields>
-	</config>
 	<updateservers>
 		<server type="collection" priority="1" name="mediahof">http://extensions.mediahof.de/extensions.xml</server>
 	</updateservers>

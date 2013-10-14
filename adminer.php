@@ -6,7 +6,7 @@
  * @license    GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 class plgSystemAdminer extends JPlugin
 {
@@ -26,19 +26,22 @@ class plgSystemAdminer extends JPlugin
             return;
         }
         
-        if ($app->input->get('adminer') && $app->input->get('option') == 'com_cpanel') {
+        if ($app->input->get('adminer') && $app->input->get('option') == 'com_admin' && $app->input->get('view') == 'sysinfo') {
+            JToolbarHelper::title(JText::_('Adminer'), 'systeminfo.png');
+            JFactory::getDocument()->setTitle(JText::_('Adminer'));
+            $app->JComponentTitle= 'test';
             $iframe = JHtml::_('iframe', JUri::root(true) . '/media/adminer/loader.php', 'adminer', $this->layout);
             
             JFactory::getDocument()->setBuffer($iframe, 'component');
         }
     }
-
+    
     public function onGetIcons()
     {
         return array(
             array(
-                'link' => 'index.php?adminer=true',
-                'image' => ((JVERSION >= 3) ? 'tools' : 'media/adminer/adminer.png'),
+                'link' => 'index.php?option=com_admin&view=sysinfo&adminer=true',
+                'image' => (version_compare(JVERSION, '3', '>=') ? 'tools' : 'adminer/adminer.png'),
                 'text' => JText::_('Adminer'),
                 'id' => 'plg_system_adminer',
                 'access' => array(

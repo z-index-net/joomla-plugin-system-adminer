@@ -17,11 +17,13 @@
 		<include name="**" />
 	</fileset>
 
-	<target name="lang">
-		<copy file="./lang/en-GB.${phing.project.name}.ini" todir="../../../administrator/language/en-GB/" />
-		<copy file="./lang/en-GB.${phing.project.name}.sys.ini" todir="../../../administrator/language/en-GB/" />
-		<copy file="./lang/de-DE.${phing.project.name}.ini" todir="../../../administrator/language/de-DE/" />
-		<copy file="./lang/de-DE.${phing.project.name}.sys.ini" todir="../../../administrator/language/de-DE/" />
+	<target name="test">
+		<delete dir="./../../../media/adminer/" />
+		<copy todir="./../../../media/adminer/">
+			<fileset dir="./media/">
+				<include name="**" />
+			</fileset>
+		</copy>
 	</target>
 
 	<target name="cleanup">
@@ -37,9 +39,6 @@
 				<replacetokens>
 					<token key="REVISION" value="rev ${revision}" />
 				</replacetokens>
-				<replaceregexp>
-					<regexp pattern="session_regenerate_id();" replace="" />
-				</replaceregexp>
 			</filterchain>
 		</copy>
 
