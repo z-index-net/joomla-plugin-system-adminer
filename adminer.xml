@@ -13,7 +13,8 @@
 		<filename plugin="adminer">adminer.php</filename>
 	</files>
 	<media folder="media" destination="adminer">
-		<filename>adminer.php</filename>
+		<filename>adminer.css</filename>
+        <filename>adminer.php</filename>
         <filename>adminer.png</filename>
         <filename>loader.php</filename>
         <folder>plugins</folder>
