@@ -18,26 +18,21 @@ require_once JPATH_BASE . '/includes/framework.php';
 
 JFactory::getApplication('administrator')->initialise();
 
-if(!JFactory::getUser()->authorise('core.admin')) {
-	exit;
+if (!JFactory::getUser()->authorise('core.admin')) {
+    exit;
 }
 
-function adminer_object() {
-    
+function adminer_object()
+{
     JLoader::import('joomla.filesystem.folder');
-    
+
     $files = JFolder::files(dirname(__FILE__) . '/plugins/');
-    
+
     $plugins = array();
-    foreach($files as $file) {
+    foreach ($files as $file) {
         include_once dirname(__FILE__) . DS . 'plugins' . DS . $file;
     }
-    
-    // fallback
-    if(empty($plugins)) {
-        return new Adminer();
-    }
-    
+
     return new AdminerPlugin($plugins);
 }
 
