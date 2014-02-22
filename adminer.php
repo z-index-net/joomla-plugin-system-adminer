@@ -17,7 +17,6 @@ class plgSystemAdminer extends JPlugin
         'style' => 'border: 0;',
         'onload' => 'this.height=this.contentWindow.document.body.scrollHeight'
     );
-
     private $styles = array(
         '.icon-48-database{background-image:url(../media/adminer/adminer.png);}',
         '#toolbar{display:none;}'
