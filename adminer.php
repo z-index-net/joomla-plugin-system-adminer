@@ -10,7 +10,6 @@ defined('_JEXEC') or die;
 
 class plgSystemAdminer extends JPlugin
 {
-
     private $layout = array(
         'width'  => '100%',
         'height' => '500',
