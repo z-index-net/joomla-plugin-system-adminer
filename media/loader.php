@@ -16,9 +16,10 @@ require_once JPATH_BASE . '/includes/defines.php';
 
 require_once JPATH_BASE . '/includes/framework.php';
 
-JFactory::getApplication('administrator')->initialise();
+JFactory::getApplication('administrator');
 
-if (!JFactory::getUser()->authorise('core.admin')) {
+if (!JFactory::getUser()->authorise('core.admin'))
+{
     exit;
 }
 
@@ -29,7 +30,8 @@ function adminer_object()
     $files = JFolder::files(dirname(__FILE__) . '/plugins/');
 
     $plugins = array();
-    foreach ($files as $file) {
+    foreach ($files as $file)
+    {
         include_once dirname(__FILE__) . DS . 'plugins' . DS . $file;
     }
 
