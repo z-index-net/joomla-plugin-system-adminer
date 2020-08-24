@@ -10,7 +10,7 @@ define('_JEXEC', 1);
 
 define('DS', DIRECTORY_SEPARATOR);
 
-define('JPATH_BASE', dirname(__FILE__) . '/../../');
+define('JPATH_BASE', __DIR__ . '/../../');
 
 require_once JPATH_BASE . '/includes/defines.php';
 
@@ -18,8 +18,7 @@ require_once JPATH_BASE . '/includes/framework.php';
 
 JFactory::getApplication('administrator');
 
-if (!JFactory::getUser()->authorise('core.admin'))
-{
+if (!JFactory::getUser()->authorise('core.admin')) {
     exit;
 }
 
@@ -27,15 +26,14 @@ function adminer_object()
 {
     JLoader::import('joomla.filesystem.folder');
 
-    $files = JFolder::files(dirname(__FILE__) . '/plugins/');
+    $files = JFolder::files(__DIR__ . '/plugins/');
 
-    $plugins = array();
-    foreach ($files as $file)
-    {
-        include_once dirname(__FILE__) . DS . 'plugins' . DS . $file;
+    $plugins = [];
+    foreach ($files as $file) {
+        include_once __DIR__ . DS . 'plugins' . DS . $file;
     }
 
     return new AdminerPlugin($plugins);
 }
 
-include_once dirname(__FILE__) . '/adminer.php';
+include_once __DIR__ . '/adminer.php';

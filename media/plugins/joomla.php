@@ -54,6 +54,7 @@ class AdminerJoomla
     function headers()
     {
         header("X-XSS-Protection: 0");
+        header("X-Frame-Options: SAMEORIGIN");
         return false;
     }
 

@@ -20,6 +20,6 @@
         <folder>plugins</folder>
     </media>
     <updateservers>
-        <server type="collection" priority="1" name="mediahof">http://extensions.mediahof.de/extensions.xml</server>
+        <server type="extension" priority="1" name="System - Simple Adminer">https://raw.githubusercontent.com/z-index-net/joomla-plugin-system-adminer/master/updatestream.xml</server>
     </updateservers>
 </extension>
